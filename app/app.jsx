@@ -38,6 +38,7 @@ export default class App extends React.Component {
           htmlContent={htmlContent}
           view={this.state.view}
         />
+        <hr />
       </div>
     );
   }

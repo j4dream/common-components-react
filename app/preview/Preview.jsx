@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Desktop from './Desktop';
 import Mobile from './Mobile';
+import { Transition, View } from '../../libs';
 import './main.css';
 
 export default class Preview extends React.Component {
@@ -36,24 +37,23 @@ export default class Preview extends React.Component {
   render() {
     const { show, htmlContent } = this.props;
     return (
-      <div style={{
-        display: show ? 'block' : 'none'
-      }}
-      >
-        <div className="preview-modal">
-          {
-            this.state.view === 'desktop' ? (
-              <Desktop
-                htmlContent={htmlContent}
-              />
-            ) : (
-              <Mobile
-                htmlContent={htmlContent}
-              />
-            )
-          }
-        </div>
-      </div>
+      <Transition name="preview">
+        <View key={show} show={show}>
+          <div className="preview-modal">
+            {
+              this.state.view === 'desktop' ? (
+                <Desktop
+                  htmlContent={htmlContent}
+                />
+              ) : (
+                <Mobile
+                  htmlContent={htmlContent}
+                />
+              )
+            }
+          </div>
+        </View>
+      </Transition>
     );
   }
 }
