@@ -1,0 +1,76 @@
+{
+  "name": "common-components-react",
+  "version": "1.4.1",
+  "description": "A boilerplate for React-Babel-Webpack project",
+  "main": "app/main.jsx",
+  "scripts": {
+    "precommit": "npm run lint",
+    "commitmsg": "npm run lint:msg",
+    "lint": "eslint --cache --ignore-path .gitignore --ext .jsx,.js --format=node_modules/eslint-formatter-pretty .",
+    "lint:msg": "validate-commit-msg",
+    "test": "npm run lint",
+    "build": "webpack",
+    "start": "webpack-dev-server --devtool eval --progress --hot --content-base app",
+    "deploy": "NODE_ENV=production webpack --config webpack.production.config.js",
+    "deploy-windows": "SET NODE_ENV=production & webpack --config webpack.production.config.js",
+    "validate": "npm ls",
+    "commit": "git cz",
+    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 1"
+  },
+  "dependencies": {
+    "babel-runtime": "6.x",
+    "classnames": "^2.2.5",
+    "react": "15.x",
+    "react-dom": "15.x",
+    "throttle-debounce": "^1.0.1"
+  },
+  "devDependencies": {
+    "babel-core": "6.x",
+    "babel-eslint": "7.x",
+    "babel-loader": "^7.1.0",
+    "babel-plugin-transform-runtime": "6.x",
+    "babel-preset-es2015": "6.x",
+    "babel-preset-react": "6.x",
+    "babel-preset-stage-0": "6.x",
+    "commitizen": "^2.9.3",
+    "conventional-changelog-cli": "1.x",
+    "copy-webpack-plugin": "latest",
+    "css-loader": "^0.28.4",
+    "cz-conventional-changelog": "^2.0.0",
+    "eslint": "^4.0.0",
+    "eslint-config-airbnb": "^15.0.1",
+    "eslint-formatter-pretty": "^1.1.0",
+    "eslint-plugin-compat": "^1.0.4",
+    "eslint-plugin-import": "^2.5.0",
+    "eslint-plugin-jsx-a11y": "^5.0.3",
+    "eslint-plugin-react": "^7.0.1",
+    "husky": "^0.14.0",
+    "open-browser-webpack-plugin": "0.0.5",
+    "style-loader": "^0.18.2",
+    "validate-commit-msg": "2.x",
+    "webpack": "^3.0.0",
+    "webpack-dev-server": "^2.5.0"
+  },
+  "author": "J4Dream",
+  "license": "MIT",
+  "config": {
+    "validate-commit-msg": {
+      "types": [
+        "feat",
+        "fix",
+        "docs",
+        "style",
+        "refactor",
+        "perf",
+        "test",
+        "chore",
+        "revert"
+      ],
+      "warnOnFail": false,
+      "maxSubjectLength": 100
+    },
+    "commitizen": {
+      "path": "node_modules/cz-conventional-changelog"
+    }
+  }
+}
